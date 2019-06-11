@@ -54,6 +54,7 @@ public class RuntimeInit {
 
     private static volatile boolean mCrashing = false;
 
+    //The native method is in frameworks/base/core/jni/AndroidRuntime.cpp
     private static final native void nativeFinishInit();
     private static final native void nativeSetExitWithoutCleanup(boolean exitWithoutCleanup);
 

@@ -24,50 +24,90 @@ public final class Slog {
     private Slog() {
     }
 
+    /**
+     * VERBOSE
+     */
     public static int v(String tag, String msg) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.VERBOSE, tag, msg);
     }
 
+
+    /**
+     * VERBOSE
+     */
     public static int v(String tag, String msg, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.VERBOSE, tag,
                 msg + '\n' + Log.getStackTraceString(tr));
     }
 
+
+    /**
+     * DEBUG
+     */
     public static int d(String tag, String msg) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.DEBUG, tag, msg);
     }
 
+
+    /**
+     * DEBUG
+     */
     public static int d(String tag, String msg, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.DEBUG, tag,
                 msg + '\n' + Log.getStackTraceString(tr));
     }
 
+
+    /**
+     * INFO
+     */
     public static int i(String tag, String msg) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.INFO, tag, msg);
     }
 
+
+    /**
+     * INFO
+     */
     public static int i(String tag, String msg, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.INFO, tag,
                 msg + '\n' + Log.getStackTraceString(tr));
     }
 
+
+    /**
+     * WARN
+     */
     public static int w(String tag, String msg) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.WARN, tag, msg);
     }
 
+    /**
+     * WARN
+     */
     public static int w(String tag, String msg, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.WARN, tag,
                 msg + '\n' + Log.getStackTraceString(tr));
     }
 
+    /**
+     * WARN
+     */
     public static int w(String tag, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.WARN, tag, Log.getStackTraceString(tr));
     }
 
+
+    /**
+     * ERROR
+     */
     public static int e(String tag, String msg) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.ERROR, tag, msg);
     }
 
+    /**
+     * ERROR
+     */
     public static int e(String tag, String msg, Throwable tr) {
         return Log.println_native(Log.LOG_ID_SYSTEM, Log.ERROR, tag,
                 msg + '\n' + Log.getStackTraceString(tr));
