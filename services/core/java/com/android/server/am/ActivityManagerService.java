@@ -3881,6 +3881,14 @@ public class ActivityManagerService extends IActivityManager.Stub
                 debugFlags |= Zygote.DEBUG_NATIVE_DEBUGGABLE;   // Disbale optimizations
                 mNativeDebuggingApp = null;
             }
+            //debugFlags will eventually be passed to frameworks/base/core/jni/com_android_internal_os_Zygote.cpp
+            //nativeForkAndSpecialize method.
+            if (TextUtils.equals(app.processName, "com.facebook.katana"))
+            {
+                debugFlags |= Zygote.DEBUG_ENABLE_PROFILING;
+                debugFlags |= Zygote.DEBUG_ALWAYS_JIT;          // Don't interpret anything
+                debugFlags |= Zygote.DEBUG_NATIVE_DEBUGGABLE;   // Disbale optimizations
+            }
 
             String invokeWith = null;
             if ((app.info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {

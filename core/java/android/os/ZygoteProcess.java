@@ -374,6 +374,10 @@ public class ZygoteProcess {
         if ((debugFlags & Zygote.DEBUG_ENABLE_ASSERT) != 0) {
             argsForZygote.add("--enable-assert");
         }
+        if ((debugFlags & Zygote.DEBUG_ENABLE_PROFILING) != 0) {
+            argsForZygote.add("--enable-profiling");
+        }
+
         if (mountExternal == Zygote.MOUNT_EXTERNAL_DEFAULT) {
             argsForZygote.add("--mount-external-default");
         } else if (mountExternal == Zygote.MOUNT_EXTERNAL_READ) {

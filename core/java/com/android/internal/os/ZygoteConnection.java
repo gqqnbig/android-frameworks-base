@@ -479,6 +479,8 @@ class ZygoteConnection {
                     debugFlags |= Zygote.DEBUG_GENERATE_DEBUG_INFO;
                 } else if (arg.equals("--always-jit")) {
                     debugFlags |= Zygote.DEBUG_ALWAYS_JIT;
+                } else if (arg.equals("--enable-profiling")) {
+                    debugFlags |= Zygote.DEBUG_ENABLE_PROFILING;
                 } else if (arg.equals("--native-debuggable")) {
                     debugFlags |= Zygote.DEBUG_NATIVE_DEBUGGABLE;
                 } else if (arg.equals("--java-debuggable")) {

@@ -51,6 +51,8 @@ public final class Zygote {
     /** Make the code Java debuggable by turning off some optimizations. */
     public static final int DEBUG_JAVA_DEBUGGABLE = 1 << 8;
 
+    public static final int DEBUG_ENABLE_PROFILING = 1 << 9;
+
     /** No external storage should be mounted. */
     public static final int MOUNT_EXTERNAL_NONE = 0;
     /** Default external storage should be mounted. */
