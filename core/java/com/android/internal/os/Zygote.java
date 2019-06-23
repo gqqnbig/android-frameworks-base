@@ -179,9 +179,10 @@ public final class Zygote {
      */
     native protected static void nativeUnmountStorageOnInit();
 
+    //It's a callback from /frameworks/base/core/jni/com_android_internal_os_Zygote.cpp
     private static void callPostForkChildHooks(int debugFlags, boolean isSystemServer,
-            String instructionSet) {
-        VM_HOOKS.postForkChild(debugFlags, isSystemServer, instructionSet);
+            String instructionSet, String dataDir) {
+        VM_HOOKS.postForkChild(debugFlags, isSystemServer, instructionSet, dataDir);
     }
 
     /**
