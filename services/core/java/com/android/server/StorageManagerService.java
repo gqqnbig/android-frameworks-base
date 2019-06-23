@@ -2009,6 +2009,7 @@ class StorageManagerService extends IStorageManager.Stub
         }
 
         try {
+            //Eventually calls /system/vold/VolumeManager.cpp VolumeManager::remountUid
             mConnector.execute("volume", "remount_uid", uid, modeName);
         } catch (NativeDaemonConnectorException e) {
             Slog.w(TAG, "Failed to remount UID " + uid + " as " + modeName + ": " + e);
