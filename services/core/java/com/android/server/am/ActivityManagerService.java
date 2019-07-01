@@ -3886,7 +3886,6 @@ public class ActivityManagerService extends IActivityManager.Stub
             String obj_profiling_target = SystemProperties.get("persist.sys.art.obj_profiling_target");
             if (obj_profiling_target.isEmpty() == false && (TextUtils.equals(obj_profiling_target, "*") || app.processName.startsWith(obj_profiling_target))) {
                 debugFlags |= Zygote.DEBUG_ENABLE_PROFILING;
-                debugFlags |= Zygote.DEBUG_ALWAYS_JIT;          // Don't interpret anything
                 //debugFlags |= Zygote.DEBUG_NATIVE_DEBUGGABLE;   // Disbale optimizations
             }
 
