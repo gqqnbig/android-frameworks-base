@@ -18903,10 +18903,14 @@ public class PackageManagerService extends IPackageManager.Stub
         // continuous progress to the useur instead of mysteriously blocking somewhere in the
         // middle of running an instant app. The default behaviour can be overridden
         // via gservices.
+        String obj_profiling_target = SystemProperties.get("persist.sys.art.obj_profiling_target");
+        final boolean isProfilingTarget = obj_profiling_target.isEmpty() == false && (TextUtils.equals(obj_profiling_target, "*") || pkg.packageName.startsWith(obj_profiling_target));
+
         final boolean performDexopt = !forwardLocked
-            && !pkg.applicationInfo.isExternalAsec()
-            && (!instantApp || Global.getInt(mContext.getContentResolver(),
-                    Global.INSTANT_APP_DEXOPT_ENABLED, 0) != 0);
+                && !pkg.applicationInfo.isExternalAsec()
+                && (!instantApp || Global.getInt(mContext.getContentResolver(),
+                Global.INSTANT_APP_DEXOPT_ENABLED, 0) != 0)
+                && isProfilingTarget == false;
 
         if (performDexopt) {
             Trace.traceBegin(TRACE_TAG_PACKAGE_MANAGER, "dexopt");
