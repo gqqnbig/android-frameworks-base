@@ -110,8 +110,9 @@ public final class Bitmap implements Parcelable {
     /**
      * Private constructor that must received an already allocated native bitmap
      * int (pointer).
+     * called from JNI
+     * @param nativeBitmap native bitmap pointer
      */
-    // called from JNI
     Bitmap(long nativeBitmap, int width, int height, int density,
             boolean isMutable, boolean requestPremultiplied,
             byte[] ninePatchChunk, NinePatch.InsetStruct ninePatchInsets) {
